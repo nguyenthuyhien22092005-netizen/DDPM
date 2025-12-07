@@ -20,7 +20,7 @@
 - [Cải thiện & hướng phát triển](#-cải-thiện--hướng-phát-triển)
 - [Thông tin liên hệ](#-thông-tin-liên-hệ)
 
-## 1. Giới thiệu
+#1---Giới-thiệu
 Nghiên cứu này sử dụng **Diffusion Model (DDPM)** để tạo ảnh nhân tạo **(synthetic nuclei images)** nhằm tăng cường dữ liệu cho bài toán phân đoạn nhân tế bào.
 
 Pipeline gồm 2 phần:
