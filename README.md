@@ -9,7 +9,18 @@ Dự án này sử dụng **Diffusion Model (DDPM)** để sinh ảnh tế bào 
 - Huấn luyện UNet segmentation.
 - Đánh giá bằng Dice & IoU.
 
-## 3. Yêu cầu hệ thống
+------------------------------------------------------------------------
+
+## 3. Pipeline Diagram
+
+    [Dataset] --> [DDPM Training] --> [Synthetic Images]
+           \                                   /
+            \                                 /
+             ------> [UNet Training] <--------
+
+------------------------------------------------------------------------
+
+## 4. Yêu cầu hệ thống
 ### Phần mềm:
 ```
 Python 3.10
@@ -28,7 +39,7 @@ pip install -r requirements.txt
 - CPU chạy được (chậm hơn)
 - GPU khuyến khích cho train diffusion & UNet
 
-## 4. Cấu trúc thư mục
+## 5. Cấu trúc thư mục
 ```
 PythonDiffusion/
 │
@@ -56,7 +67,7 @@ PythonDiffusion/
 
 ```
 
-## 5. Cách chạy
+## 6. Cách chạy
 ### Bước 1: Train diffusion Model (DDPM)
 ```
 python scripts/train_ddpm.py
@@ -108,7 +119,7 @@ python scripts/predict_unet.py
 ```
 predict/output/
 ```
-## 6. Đánh giá Segmentation:
+## 7. Đánh giá Segmentation:
 - Dice Scorw
 - IoU Score
 - Kết quả hiển thị trực tiếp khi chạy ``` predict_unet.py. ```
@@ -120,15 +131,15 @@ predict/output/
 | `image_02.png` | **0.6370** | 0.4674    | `image_02_mask.png` | `image_02_overlay.png` |
 | `image_03.png` | **0.3502** | 0.2123    | `image_03_mask.png` | `image_03_overlay.png` |
 
-# <a name="results"></a> Kết quả minh họa
+## Kết quả minh họa
 
-## **Ảnh gốc — Mask dự đoán — Overlay**
+### **Ảnh gốc — Mask dự đoán — Overlay**
 
 #### **Ảnh gốc**
 
 ### Original
 
-![Original](https://github.com/nguyenthuyhien22092005-netizen/DDPM/blob/master/predict/input/image_02.tif)
+![Original](https://github.com/nguyenthuyhien22092005-netizen/DDPM/blob/master/predict/input/image_02.png)
 
 ### Mask
 
@@ -138,16 +149,7 @@ predict/output/
 
 ![Overlay](https://github.com/nguyenthuyhien22092005-netizen/DDPM/blob/master/predict/output/image_02_overlay.png)
 
-------------------------------------------------------------------------
-
-## 3. Pipeline Diagram
-
-    [Dataset] --> [DDPM Training] --> [Synthetic Images]
-           \                                   /
-            \                                 /
-             ------> [UNet Training] <--------
-
-------------------------------------------------------------------------
-
-## 7. Tác giả
+### Dataset dùng trong Project
+- [Dataset](https://drive.google.com/drive/folders/1eeF3NNeLyrtrF3UASUm12Tu7Ey1AEPJ1?usp=drive_link)
+## 8. Tác giả
 Nguyễn Thúy Hiền
