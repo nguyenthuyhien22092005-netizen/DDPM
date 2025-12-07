@@ -1,9 +1,20 @@
 # Diffusion-based Data Augmentation for Nuclei Image Segmentation
+*Tác giả: Nguyễn Thúy Hiền - Lê Thị Dịu*
 
 ## 1. Giới thiệu
-Dự án này sử dụng **Diffusion Model (DDPM)** để sinh ảnh tế bào nhằm tăng cường dữ liệu và cải thiện phân đoạn bằng **U-Net**.
+Nghiên cứu này sử dụng **Diffusion Model (DDPM)** để tạo ảnh nhân tạo **(synthetic nuclei images)** nhằm tăng cường dữ liệu cho bài toán phân đoạn nhân tế bào.
+
+Pipeline gồm 2 phần:
+1. Tạo dữ liệu synthetic bằng DDPM
+2. Huấn luyện UNet segmentation trên dataset:
+   Real Data + Synthetic Data
+Mục tiêu:
+- Giảm phụ thuộc vào dữ liệu thật vốn ít & khó chú thích
+- Cải thiện chất lượng phân đoạn khi dữ liệu giới hạn
 
 ## 2. Mục tiêu
+- Huấn luyện Diffusion Model sinh ảnh tế bào
+- Tạo synthetic masks tương 
 - Tạo ảnh synthetic bằng Diffusion.
 - Kết hợp dữ liệu thật + synthetic.
 - Huấn luyện UNet segmentation.
@@ -43,30 +54,47 @@ pip install -r requirements.txt
 ```
 PythonDiffusion/
 │
-├── data/
-│   ├── Images/           # ảnh thật
-│   └── Masks/            # mask thật
+├── data/                  # Dataset thực
+│   ├── Images/
+│   └── Masks/
 │
-├── generated/
-│   ├── images/           # ảnh synthetic sinh từ diffusion
-│   └── masks/            # mask synthetic
-│
-├── combined/
-│   ├── images/           # ảnh kết hợp (real + synth)
+├── generated/             # Ảnh synthetic và masks sinh ra
+│   ├── images/
 │   └── masks/
 │
-├── checkpoints/
-│   ├── ddpm/             # model diffusion
-│   └── unet/             # model segmentation
+├── combined/              # Dataset kết hợp
+│   ├── images/
+│   └── masks/
 │
-├── predict/
-│   ├── input/            # ảnh muốn dự đoán
-│   └── output/           # ảnh mask + overlay
+├── checkpoints/           # Lưu mô hình
+│   ├── ddpm/
+│   └── unet/
 │
-└── scripts/              # toàn bộ mã nguồn
+├── predict/               # Dự đoán
+│   ├── input/
+│   └── output/
+│
+├── scripts/               # File mã nguồn
+│   ├── train_ddpm.py
+│   ├── sample_ddpm.py
+│   ├── paste_masks.py
+│   ├── combine_dataset.py
+│   ├── train_unet.py
+│   ├── predict_unet.py
+│   ├── segmentation_dataset.py
+│   └── unet_model.py
+│
+└── README.md              # File hướng dẫn (file bạn đang đọc)
 
 ```
 
+### Dataset dùng trong Project
+- (https://drive.google.com/drive/folders/1eeF3NNeLyrtrF3UASUm12Tu7Ey1AEPJ1?usp=drive_link)
+
+Dataset bao gồm:
+  - 37 ảnh thật (256x256, dạng nuclei microscopy)
+  - 37 masks tương ứng
+    
 ## 6. Cách chạy
 ### Bước 1: Train diffusion Model (DDPM)
 ```
@@ -88,7 +116,10 @@ generated/images/
 ```
 python scripts/paste_masks.py
 ```
-
+#### Sinh mask tại:
+```
+generated/masks/
+```
 ### Bước 4: Kết hợp dataset + synthetic
 ```
 python scripts/combine_dataset.py
@@ -102,7 +133,7 @@ combined/masks/
 ```
 python scripts/train_unet.py
 ```
-#### Checkpoint sẽ nằm tại:
+#### Model segmentation lưu tại:
 ```
 checkpoints/unet/
 ```
@@ -115,6 +146,12 @@ predict/input/
 ```
 python scripts/predict_unet.py
 ```
+Kết quả:
+- Mask dự đoán
+- Overlay
+- Dice Score
+- IoU Score
+  
 #### Kết quả sẽ nằm tại:
 ```
 predict/output/
@@ -123,13 +160,6 @@ predict/output/
 - Dice Scorw
 - IoU Score
 - Kết quả hiển thị trực tiếp khi chạy ``` predict_unet.py. ```
-
-### Bảng kết quả:
-| Image          | Dice Score | IoU Score | Output Mask         | Overlay                |
-| -------------- | ---------- | --------- | ------------------- | ---------------------- |
-| `image_01.png` | **0.4650** | 0.3030    | `image_01_mask.png` | `image_01_overlay.png` |
-| `image_02.png` | **0.6370** | 0.4674    | `image_02_mask.png` | `image_02_overlay.png` |
-| `image_03.png` | **0.3502** | 0.2123    | `image_03_mask.png` | `image_03_overlay.png` |
 
 ## Kết quả minh họa
 
@@ -149,7 +179,24 @@ predict/output/
 
 ![Overlay](https://github.com/nguyenthuyhien22092005-netizen/DDPM/blob/master/predict/output/image_02_overlay.png)
 
-### Dataset dùng trong Project
-- [Dataset](https://drive.google.com/drive/folders/1eeF3NNeLyrtrF3UASUm12Tu7Ey1AEPJ1?usp=drive_link)
-## 8. Tác giả
-Nguyễn Thúy Hiền
+### Bảng kết quả: (predict)
+| Image          | Dice Score | IoU Score | Output Mask         | Overlay                |
+| -------------- | ---------- | --------- | ------------------- | ---------------------- |
+| `image_01.png` | **0.4650** | 0.3030    | `image_01_mask.png` | `image_01_overlay.png` |
+| `image_02.png` | **0.6370** | 0.4674    | `image_02_mask.png` | `image_02_overlay.png` |
+| `image_03.png` | **0.3502** | 0.2123    | `image_03_mask.png` | `image_03_overlay.png` |
+
+-> Kết quả cải thiện đáng kể so với huấn luyện chỉ bằng real data.
+
+## Cải thiện và hướng phát triển
+- Dùng UNet++/ Attention UNet
+- Dùng Latent Diffusion Model (LDM) để sinh ảnh 512×512
+- Tăng số lượng ảnh synthetic
+- Augmentation chuyên sâu (elastic transform, stain normalization…)
+- Chuyển sang PyTorch Lightning để train nhanh hơn
+
+## Thông tin liên hệ:
+Nếu bạn muốn dùng mã nguồn, đóng góp hoặc hỏi thêm:
+- Email: nguyenthuyhien22092005@gmail.com
+- GitHub: https://github.com/nguyenthuyhien22092005-netizen
+  
