@@ -92,7 +92,7 @@ PythonDiffusion/
 ### Dataset dùng trong Project
 - (https://drive.google.com/drive/folders/1eeF3NNeLyrtrF3UASUm12Tu7Ey1AEPJ1?usp=drive_link)
 
-Dataset bao gồm:
+Sử dụng bộ dữ liệu (Dataset) có sẵn (online) MoNuSeg (TCGA):
   - 37 ảnh thật (256x256, dạng nuclei microscopy)
   - 37 masks tương ứng
     
