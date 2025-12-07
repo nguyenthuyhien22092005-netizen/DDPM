@@ -5,7 +5,15 @@
 Nghiên cứu này sử dụng **Diffusion Model (DDPM)** để tạo ảnh nhân tạo **(synthetic nuclei images)** nhằm tăng cường dữ liệu cho bài toán phân đoạn nhân tế bào.
 
 Pipeline gồm 2 phần:
-1. Tạo dữ liệu synthnăng
+1. Tạo dữ liệu synthetic bằng DDPM
+2. Huấn luyện UNet segmentation trên dataset:
+   Real Data + Synthetic Data
+
+Mục tiêu:
+- Giảm phụ thuộc vào dữ liệu thật vốn ít & khó chú thích
+- Cải thiện chất lượng phân đoạn khi dữ liệu giới hạn
+
+## 2. Mục tiêu
 - Huấn luyện Diffusion Model sinh ảnh tế bào
 - Tạo synthetic masks tương 
 - Tạo ảnh synthetic bằng Diffusion.
