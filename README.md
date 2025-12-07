@@ -15,7 +15,6 @@
 - [Thông tin liên hệ](#-thông-tin-liên-hệ)
 
 #8---kết-quả-minh-họa
-
 ### **Ảnh gốc — Mask dự đoán — Overlay**
 
 #### **Ảnh gốc**
@@ -42,6 +41,7 @@
 -> Kết quả cải thiện đáng kể so với huấn luyện chỉ bằng real data.
 
 #9---cải-thiện--hướng-phát-triển
+
 - Dùng UNet++/ Attention UNet
 - Dùng Latent Diffusion Model (LDM) để sinh ảnh 512×512
 - Tăng số lượng ảnh synthetic
@@ -49,6 +49,7 @@
 - Chuyển sang PyTorch Lightning để train nhanh hơn
 
 #10---thông-tin-liên-hệ
+
 Nếu bạn muốn dùng mã nguồn, đóng góp hoặc hỏi thêm:
 - Email: nguyenthuyhien22092005@gmail.com
 - GitHub: https://github.com/nguyenthuyhien22092005-netizen
