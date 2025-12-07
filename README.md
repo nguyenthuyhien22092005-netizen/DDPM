@@ -113,11 +113,16 @@ predict/output/
 - IoU Score
 - Kết quả hiển thị trực tiếp khi chạy ``` predict_unet.py. ```
 
+### Bảng kết quả:
+| Image          | Dice Score | IoU Score | Output Mask         | Overlay                |
+| -------------- | ---------- | --------- | ------------------- | ---------------------- |
+| `image_01.png` | **0.4650** | 0.3030    | `image_01_mask.png` | `image_01_overlay.png` |
+| `image_02.png` | **0.6370** | 0.4674    | `image_02_mask.png` | `image_02_overlay.png` |
+| `image_03.png` | **0.3502** | 0.2123    | `image_03_mask.png` | `image_03_overlay.png` |
+
 # <a name="results"></a> Kết quả minh họa
 
-## **📌 Ảnh gốc — Mask dự đoán — Overlay**
-
-### *Minh hoạ ví dụ*  
+## **Ảnh gốc — Mask dự đoán — Overlay**
 
 #### **Ảnh gốc**
 
