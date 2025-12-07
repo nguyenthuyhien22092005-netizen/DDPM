@@ -1,25 +1,6 @@
 # Diffusion-based Data Augmentation for Nuclei Image Segmentation
 *Tác giả: Nguyễn Thúy Hiền - Lê Thị Dịu*
 
-## Table of Contents
-
-- [Giới thiệu](#-giới-thiệu)
-- [Tính năng](#-tính-năng)
-- [Pipeline Diagram](#-Pipeline-Diagram)
-- [Yêu cầu hệ thống](#-Yêu-cầu-hệ-thống)
-- [Cấu trúc thư mục](#-cấu-trúc-thư-mục)
-- [Huấn luyện mô hình](#️-huấn-luyện-mô-hình)
-- [Huấn luyện Diffusion Model (DDPM)](#-huấn-luyện-diffusion-model-ddpm)
-- [Sinh dữ liệu Synthetic](#-sinh-dữ-liệu-synthetic)
-- [Tạo Synthetic Mask](#-tạo-synthetic-mask)
-- [Kết hợp dataset thực + synthetic](#-kết-hợp-dataset-thực--synthetic)
-- [Huấn luyện UNet Segmentation](#-huấn-luyện-unet-segmentation)
-- [Dự đoán segmentation](#-Dự-đoán-segmentation)
-- [Dự đoán & đánh giá](#-dự-đoán--đánh-giá)
-- [Kết quả minh họa](#-kết-quả-minh-họa)
-- [Cải thiện & hướng phát triển](#-cải-thiện--hướng-phát-triển)
-- [Thông tin liên hệ](#-thông-tin-liên-hệ)
-
 ## 1. Giới thiệu
 Nghiên cứu này sử dụng **Diffusion Model (DDPM)** để tạo ảnh nhân tạo **(synthetic nuclei images)** nhằm tăng cường dữ liệu cho bài toán phân đoạn nhân tế bào.
 
