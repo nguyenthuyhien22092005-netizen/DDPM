@@ -1,6 +1,26 @@
 # Diffusion-based Data Augmentation for Nuclei Image Segmentation
 *Tác giả: Nguyễn Thúy Hiền - Lê Thị Dịu*
 
+# Table of Contents
+
+1. [Giới thiệu](#-giới-thiệu)
+2. [Mục tiêu](#-mục-tiêu)
+3. [Pipeline Diagram](#-Pipeline-Diagram)
+4. [Yêu cầu hệ thống](#-Yêu-cầu-hệ-thống)
+5. [Cấu trúc thư mục](#-cấu-trúc-thư-mục)
+6. [Huấn luyện mô hình](#️-huấn-luyện-mô-hình)
+
+   * [Huấn luyện Diffusion Model (DDPM)](#-huấn-luyện-diffusion-model-ddpm)
+   * [Sinh dữ liệu Synthetic](#-sinh-dữ-liệu-synthetic)
+   * [Tạo Synthetic Mask](#-tạo-synthetic-mask)
+   * [Kết hợp dataset thực + synthetic](#-kết-hợp-dataset-thực--synthetic)
+   * [Huấn luyện UNet Segmentation](#-huấn-luyện-unet-segmentation)
+   * [Dự đoán segmentation](#-Dự-đoán-segmentation)
+7. [Dự đoán & đánh giá](#-dự-đoán--đánh-giá)
+8. [Kết quả minh họa](#-kết-quả-minh-họa)
+9. [Cải thiện & hướng phát triển](#-cải-thiện--hướng-phát-triển)
+10. [Thông tin liên hệ](#-thông-tin-liên-hệ)
+
 ## 1. Giới thiệu
 Nghiên cứu này sử dụng **Diffusion Model (DDPM)** để tạo ảnh nhân tạo **(synthetic nuclei images)** nhằm tăng cường dữ liệu cho bài toán phân đoạn nhân tế bào.
 
@@ -157,12 +177,12 @@ Kết quả:
 ```
 predict/output/
 ```
-## 7. Đánh giá Segmentation:
+## 7. Dự đoán & đánh giá
 - Dice Scorw
 - IoU Score
 - Kết quả hiển thị trực tiếp khi chạy ``` predict_unet.py. ```
 
-## Kết quả minh họa
+## 8. Kết quả minh họa
 
 ### **Ảnh gốc — Mask dự đoán — Overlay**
 
@@ -189,14 +209,14 @@ predict/output/
 
 -> Kết quả cải thiện đáng kể so với huấn luyện chỉ bằng real data.
 
-## Cải thiện và hướng phát triển
+## 9. Cải thiện và hướng phát triển
 - Dùng UNet++/ Attention UNet
 - Dùng Latent Diffusion Model (LDM) để sinh ảnh 512×512
 - Tăng số lượng ảnh synthetic
 - Augmentation chuyên sâu (elastic transform, stain normalization…)
 - Chuyển sang PyTorch Lightning để train nhanh hơn
 
-## Thông tin liên hệ:
+## 10. Thông tin liên hệ:
 Nếu bạn muốn dùng mã nguồn, đóng góp hoặc hỏi thêm:
 - Email: nguyenthuyhien22092005@gmail.com
 - GitHub: https://github.com/nguyenthuyhien22092005-netizen
