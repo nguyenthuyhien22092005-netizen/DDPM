@@ -8,6 +8,7 @@ Pipeline gồm 2 phần:
 1. Tạo dữ liệu synthetic bằng DDPM
 2. Huấn luyện UNet segmentation trên dataset:
    Real Data + Synthetic Data
+
 Mục tiêu:
 - Giảm phụ thuộc vào dữ liệu thật vốn ít & khó chú thích
 - Cải thiện chất lượng phân đoạn khi dữ liệu giới hạn
