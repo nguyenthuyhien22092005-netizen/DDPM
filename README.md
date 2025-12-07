@@ -10,11 +10,11 @@
 - [Cấu trúc thư mục](#-cấu-trúc-thư-mục)
 - [Huấn luyện mô hình](#️-huấn-luyện-mô-hình)
 - [Dự đoán & đánh giá](#-dự-đoán--đánh-giá)
-- [Kết quả minh họa](#kết-quả-minh-họa)
+- [ Kết quả minh họa ](#kết-quả-minh-họa)
 - [Cải thiện & hướng phát triển](#cải-thiện--hướng-phát-triển)
 - [Thông tin liên hệ](#thông-tin-liên-hệ)
-
-#kết-quả-minh-họa
+  
+## Kết quả minh họa
 ### **Ảnh gốc — Mask dự đoán — Overlay**
 
 #### **Ảnh gốc**
@@ -40,7 +40,7 @@
 
 -> Kết quả cải thiện đáng kể so với huấn luyện chỉ bằng real data.
 
-#cải-thiện--hướng-phát-triển
+## Cải thiện & hướng phát triển
 
 - Dùng UNet++/ Attention UNet
 - Dùng Latent Diffusion Model (LDM) để sinh ảnh 512×512
@@ -48,7 +48,7 @@
 - Augmentation chuyên sâu (elastic transform, stain normalization…)
 - Chuyển sang PyTorch Lightning để train nhanh hơn
 
-#thông-tin-liên-hệ
+## Thông tin liên hệ
 
 Nếu bạn muốn dùng mã nguồn, đóng góp hoặc hỏi thêm:
 - Email: nguyenthuyhien22092005@gmail.com
