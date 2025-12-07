@@ -1,19 +1,22 @@
 # Diffusion-based Data Augmentation for Nuclei Image Segmentation
 *Tác giả: Nguyễn Thúy Hiền - Lê Thị Dịu*
 
-## Table of Contents
+<details>
+  <summary> Table of Contents</summary>
 
-- [Giới thiệu](#-giới-thiệu)
-- [Tính năng chính](#-tính-năng)
-- [Pipeline Diagram](#-Pipeline-Diagram)
-- [Yêu cầu hệ thống](#-Yêu-cầu-hệ-thống)
-- [Cấu trúc thư mục](#-cấu-trúc-thư-mục)
-- [Huấn luyện mô hình](#️-huấn-luyện-mô-hình)
-- [Dự đoán & đánh giá](#-dự-đoán--đánh-giá)
-- [ Kết quả minh họa ](#kết-quả-minh-họa)
+- [Giới thiệu](#giới-thiệu)
+- [Tính năng chính](#tính-năng-chính)
+- [Pipeline Diagram](#pipeline-diagram)
+- [Yêu cầu hệ thống](#yêu-cầu-hệ-thống)
+- [Cấu trúc thư mục](#cấu-trúc-thư-mục)
+- [Huấn luyện mô hình](#huấn-luyện-mô-hình)
+- [Dự đoán & đánh giá](#dự-đoán--đánh-giá)
+- [Kết quả minh họa](#kết-quả-minh-họa)
 - [Cải thiện & hướng phát triển](#cải-thiện--hướng-phát-triển)
 - [Thông tin liên hệ](#thông-tin-liên-hệ)
-  
+
+</details>
+
 ## Kết quả minh họa
 ### **Ảnh gốc — Mask dự đoán — Overlay**
 
